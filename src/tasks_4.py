@@ -69,7 +69,8 @@ def get_fibonacci_sequence(req_count):
         return []
     if req_count < 3:
         return fib_seq[0:req_count]
-    len(fib_seq)
-    while  < req_count:
+    seq_len = len(fib_seq)
+    while seq_len < req_count:
         fib_seq.append(fib_seq[-2] + fib_seq[-1])
+        seq_len += 1
     return fib_seq
