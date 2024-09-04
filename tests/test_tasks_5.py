@@ -1,11 +1,13 @@
 from src.tasks_5 import (
     get_harmonic_series_sum,
     replace_odd_by_max,
-    get_increase_intervals_count
+    get_increase_intervals_count,
+    set_max_value_into_main_matrix_diagonal,
+    reverse_sentence_words
 )
 import pytest
 from decimal import Decimal, getcontext
-import random
+from random import randint
 
 
 @pytest.mark.parametrize(
@@ -63,3 +65,75 @@ def test_replace_odd_by_max(num_list, exp_res):
 )
 def test_get_increase_intervals_count(num_list, exp_res):
     assert get_increase_intervals_count(num_list) == exp_res
+
+
+@pytest.mark.parametrize(
+    "matrix, exp_res", (
+            [
+                [[7, 6, 0],
+                 [6, 6, 8],
+                 [9, 2, 9]],
+                [[7, 6, 0],
+                 [6, 8, 6],
+                 [9, 2, 9]]
+            ],
+            [
+                [[5, 9, 4],
+                 [2, 7, 2],
+                 [0, 8, 4]],
+                [[9, 5, 4],
+                 [2, 7, 2],
+                 [0, 4, 8]]
+            ],
+            [
+                [[9, 4, 5],
+                 [2, 9, 7],
+                 [8, 0, 9]],
+                [[9, 4, 5],
+                 [2, 9, 7],
+                 [8, 0, 9]],
+
+            ],
+            [
+                [[0, 4, 5],
+                 [9, 8, 9],
+                 [5, 7, 0]],
+                [[5, 4, 0],
+                 [8, 9, 9],
+                 [5, 0, 7]]
+            ],
+            [
+                [[4, 5, 3],
+                 [1, 7, 9],
+                 [6, 7, 8]],
+                [[5, 4, 3],
+                 [1, 9, 7],
+                 [6, 7, 8]]
+            ],
+            [
+                [[5, 5, 4],
+                 [5, 3, 8],
+                 [9, 8, 5]],
+                [[5, 5, 4],
+                 [5, 8, 3],
+                 [5, 8, 9]]
+            ]
+    )
+)
+def test_set_max_value_into_main_matrix_diagonal(matrix, exp_res):
+    assert set_max_value_into_main_matrix_diagonal(matrix) == exp_res
+
+
+@pytest.mark.parametrize(
+    "sentence, exp_res", (
+            ["Привет мир", "мир Привет"],
+            ["Как дела", "дела Как"],
+            ["Python - мощный язык", "язык мощный - Python"],
+            ["Солнце светит", "светит Солнце"],
+            ["Я люблю программировать", "программировать люблю Я"],
+            ["Кошки лучше собак", "собак лучше Кошки"]
+
+    )
+)
+def test_reverse_sentence_words(sentence, exp_res):
+    assert reverse_sentence_words(sentence) == exp_res
