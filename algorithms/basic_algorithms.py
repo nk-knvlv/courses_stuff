@@ -41,8 +41,32 @@ def bubble_sort(num_list):
 
 
 def dumb_sort(num_list: list) -> list:
-    for i, el in enumerate(num_list[:-1]):
-        if num_list[i] > num_list[i + 1]:
-            git
-
+    is_swap = True
+    while is_swap:
+        is_swap = False
+        for i, el in enumerate(num_list[:-1]):
+            if num_list[i] > num_list[i + 1]:
+                smaller_value = num_list[i]
+                num_list[i] = num_list[i + 1]
+                num_list[i + 1] = smaller_value
+                is_swap = True
+            continue
     return num_list
+
+
+def shake_sort(num_list: list) -> list:
+    is_swap = True
+    while True:
+        for i, el in enumerate(num_list[:-1]):
+            if num_list[i] > num_list[i + 1]:
+                smaller_value = num_list[i]
+                num_list[i] = num_list[i + 1]
+                num_list[i + 1] = smaller_value
+                break
+        for i, el in enumerate(num_list[:-1:-1]):
+            if num_list[i] > num_list[i + 1]:
+                smaller_value = num_list[i]
+                num_list[i] = num_list[i + 1]
+                num_list[i + 1] = smaller_value
+                is_swap = True
+        return num_list
