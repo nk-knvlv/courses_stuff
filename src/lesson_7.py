@@ -16,3 +16,4 @@ new_list = {f"{name}_{value}": value
 new_list = dict(map(lambda el: (f"{el[0]}_{el[1]}", el[1]), name_list.items()))
 
 print(new_list)
+
