@@ -1,4 +1,4 @@
-from src.tasks_5 import (
+from homework.tasks_5 import (
     get_harmonic_series_sum,
     replace_odd_by_max,
     get_increase_intervals_count,
@@ -6,8 +6,7 @@ from src.tasks_5 import (
     reverse_sentence_words
 )
 import pytest
-from decimal import Decimal, getcontext
-from random import randint
+from decimal import Decimal
 
 
 @pytest.mark.parametrize(

@@ -130,17 +130,23 @@ def set_max_value_into_main_matrix_diagonal(matrix):
         matrix[str_index][max_value_index] = temp_main_diagonal_el
     return matrix
 
+
 """
 В заданной строке расположить в обратном порядке все слова. Разделителями
 слов считаются пробелы.
 """
+
+
 def reverse_sentence_words(sentence):
     return ' '.join(sentence.split(' ')[::-1])
+
 
 """
 Для каждого натурального числа в промежутке от m до n вывести все делители,
 кроме единицы и самого числа. m и n вводятся с клавиатуры.
 """
+
+
 def get_interval_dividers(x, y):
     dividers_dict = {}
     for el in range(x, y + 1):
@@ -194,6 +200,8 @@ cities_us = [
 пункт и время прибытия, пункт и время отбытия. Вывести все сведения о поездах,
 время пребывания в пути которых превышает 7 часов 20 минут.
 """
+
+
 def generate_train_schedule(train_count):
     trains_schedule = {}
     now = datetime.datetime.now()
