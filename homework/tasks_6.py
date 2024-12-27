@@ -1,5 +1,6 @@
 import random
 from functools import reduce
+from pprint import pprint
 
 
 # Создать матрицу случайных чисел от a до b, размерность матрицы n*m
@@ -37,13 +38,35 @@ def get_max_sum_row_index(matrix):
 # Найти индекс колонки с максимальной суммой элементов.
 def get_max_sum_column_index(matrix):
     # (҂◡̀_◡́)ᕤ
-    return max(range(len(matrix)), key=lambda i: sum([matrix[col_i][i] for col_i in range(len(matrix))]))
+    return max(range(len(matrix[0])), key=lambda i: sum([matrix[col_i][i] for col_i in range(len(matrix))]))
 
 
-matrix = generate_matrix(1, 10, 3, 3)
+# Найти индекс ряда с минимальной суммой элементов
+def get_min_sum_row_index(matrix):
+    return min(range(len(matrix)), key=lambda i: sum(matrix[i]))
+
+
+# Найти индекс колонки с минимальной суммой элементов.
+def get_min_sum_column_index(matrix):
+    return min(range(len(matrix[0])), key=lambda i: sum([matrix[col_i][i] for col_i in range(len(matrix))]))
+
+
+def reset_above_main_diag(matrix):
+    for i in range(1, len(matrix)):
+        matrix[i] = matrix[i][:i] + [0 for el_i in range(len(matrix[i])) if el_i >= i]
+    return matrix
+
+
+n = random.randint(3, 6)
+m = random.randint(3, 6)
+matrix = generate_matrix(1, 10, n, m)
 print(matrix)
 print(f"get_matrix_max_value - {get_matrix_max_value(matrix)}")
 print(f"get_matrix_min_value - {get_matrix_min_value(matrix)}")
 print(f"get_matrix_sum - {get_matrix_sum(matrix)}")
 print(f"get_max_sum_row_index - {get_max_sum_row_index(matrix)}")
 print(f"get_max_sum_column_index - {get_max_sum_column_index(matrix)}")
+print(f"get_min_sum_row_index - {get_min_sum_row_index(matrix)}")
+print(n)
+print(m)
+pprint(f"reset_above_main_diag - {reset_above_main_diag(matrix)}")
