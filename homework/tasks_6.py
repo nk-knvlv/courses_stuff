@@ -52,21 +52,21 @@ def get_min_sum_column_index(matrix):
 
 
 def reset_above_main_diag(matrix):
-    for i in range(1, len(matrix)):
-        matrix[i] = matrix[i][:i] + [0 for el_i in range(len(matrix[i])) if el_i >= i]
+    for i in range(len(matrix)):
+        matrix[i] = matrix[i][:i+1] + [0 for el_i in range(1, len(matrix[i])) if el_i > i]
     return matrix
 
 
 n = random.randint(3, 6)
 m = random.randint(3, 6)
-matrix = generate_matrix(1, 10, n, m)
-print(matrix)
-print(f"get_matrix_max_value - {get_matrix_max_value(matrix)}")
-print(f"get_matrix_min_value - {get_matrix_min_value(matrix)}")
-print(f"get_matrix_sum - {get_matrix_sum(matrix)}")
-print(f"get_max_sum_row_index - {get_max_sum_row_index(matrix)}")
-print(f"get_max_sum_column_index - {get_max_sum_column_index(matrix)}")
-print(f"get_min_sum_row_index - {get_min_sum_row_index(matrix)}")
+matrix = generate_matrix(1, 10, n, n)
 print(n)
-print(m)
+print(matrix)
+# print(f"get_matrix_max_value - {get_matrix_max_value(matrix)}")
+# print(f"get_matrix_min_value - {get_matrix_min_value(matrix)}")
+# print(f"get_matrix_sum - {get_matrix_sum(matrix)}")
+# print(f"get_max_sum_row_index - {get_max_sum_row_index(matrix)}")
+# print(f"get_max_sum_column_index - {get_max_sum_column_index(matrix)}")
+# print(f"get_min_sum_row_index - {get_min_sum_row_index(matrix)}")
+# print(m)
 pprint(f"reset_above_main_diag - {reset_above_main_diag(matrix)}")

@@ -8,6 +8,9 @@ from homework.tasks_5 import (
 import pytest
 from decimal import Decimal
 
+from homework.tasks_6 import get_matrix_max_value, get_matrix_min_value, get_matrix_sum, get_min_sum_row_index, \
+    get_max_sum_row_index, get_max_sum_column_index, get_min_sum_column_index
+
 
 @pytest.mark.parametrize(
     "num, exp_res", (
@@ -136,3 +139,25 @@ def test_set_max_value_into_main_matrix_diagonal(matrix, exp_res):
 )
 def test_reverse_sentence_words(sentence, exp_res):
     assert reverse_sentence_words(sentence) == exp_res
+
+@pytest.mark.parametrize(
+    "matrix, expected_max, expected_min, expected_sum, expected_max_row_idx, expected_min_row_idx, expected_max_col_idx, expected_min_col_idx",
+    [
+        ([[1, 2], [3, 4]], 4, 1, 10, 1, 0, 1, 0),  # Simple 2x2 matrix
+        ([[5, 6, 7], [1, 3, 9]], 9, 1, 31, 1, 0, 2, 0),  # 2x3 matrix with different values
+        ([[10, 0, 2], [4, 5, 6], [7, 8, 9]], 10, 0, 51, 2, 0, 0, 0),  # 3x3 with mixed elements
+        ([[0, 0, 0], [0, 0, 0]], 0, 0, 0, 0, 0, 0, 0),  # All zeros
+        ([[1]], 1, 1, 1, 0, 0, 0, 0),  # Single element matrix
+        ([[2, 2, 2], [2, 2, 2]], 2, 2, 12, 0, 0, 0, 0),  # All same elements
+        ([[3, 5, 1, 9], [8, 2, 7, 4]], 9, 1, 39, 0, 1, 0, 1),  # 2x4 matrix
+        ([[10, 1, 10], [5, 2, 5], [1, 8, 2]], 10, 1, 44, 0, 2, 0, 1),  # 3x3 with some repetition
+    ]
+)
+def test_matrix_operations(matrix, expected_max, expected_min, expected_sum, expected_max_row_idx, expected_min_row_idx, expected_max_col_idx, expected_min_col_idx):
+    assert get_matrix_max_value(matrix) == expected_max
+    assert get_matrix_min_value(matrix) == expected_min
+    assert get_matrix_sum(matrix) == expected_sum
+    assert get_max_sum_row_index(matrix) == expected_max_row_idx
+    assert get_min_sum_row_index(matrix) == expected_min_row_idx
+    assert get_max_sum_column_index(matrix) == expected_max_col_idx
+    assert get_min_sum_column_index(matrix) == expected_min_col_idx
