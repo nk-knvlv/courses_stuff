@@ -51,9 +51,17 @@ def get_min_sum_column_index(matrix):
     return min(range(len(matrix[0])), key=lambda i: sum([matrix[col_i][i] for col_i in range(len(matrix))]))
 
 
+# Обнулить все элементы выше главной диагонали.
 def reset_above_main_diag(matrix):
     for i in range(len(matrix)):
-        matrix[i] = matrix[i][:i+1] + [0 for el_i in range(1, len(matrix[i])) if el_i > i]
+        matrix[i] = matrix[i][:i + 1] + [0 for el_i in range(1, len(matrix[i])) if el_i > i]
+    return matrix
+
+
+# Обнулить все элементы ниже главной диагонали.
+def reset_below_main_diag(matrix):
+    for i in range(len(matrix)):
+        matrix[i] = [0 for _ in range(i)] + matrix[i][i:]
     return matrix
 
 
@@ -69,4 +77,5 @@ print(matrix)
 # print(f"get_max_sum_column_index - {get_max_sum_column_index(matrix)}")
 # print(f"get_min_sum_row_index - {get_min_sum_row_index(matrix)}")
 # print(m)
-pprint(f"reset_above_main_diag - {reset_above_main_diag(matrix)}")
+# pprint(f"reset_above_main_diag - {reset_above_main_diag(matrix)}")
+# pprint(f"reset_below_main_diag - {reset_below_main_diag(matrix)}")
