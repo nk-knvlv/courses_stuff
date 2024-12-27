@@ -81,13 +81,22 @@ def get_matrix_difference(matrix_a, matrix_b):
          ] for row_i in range(len(matrix_a))
     ]
 
+# Создать новую матрицу равную matrix_a умноженной на g. g вводится с
+# клавиатура
+def multyply_matrix_from_input():
+    n = 3
+    while (enter_num := int(input('enter num'))) != 'stop':
+        matrix = generate_matrix(1, 10, n, n)
+        print(matrix)
+        print([list(map(lambda x: x * enter_num, row)) for row in matrix])
+
 
 n = random.randint(3, 6)
 m = random.randint(3, 6)
 matrix_a = generate_matrix(1, 10, n, n)
 matrix_b = generate_matrix(1, 10, n, n)
-print(matrix_a)
-print(matrix_b)
+# print(matrix_a)
+# print(matrix_b)
 # print(f"get_matrix_max_value - {get_matrix_max_value(matrix)}")
 # print(f"get_matrix_min_value - {get_matrix_min_value(matrix)}")
 # print(f"get_matrix_sum - {get_matrix_sum(matrix)}")
@@ -97,4 +106,5 @@ print(matrix_b)
 # print(m)
 # pprint(f"reset_above_main_diag - {reset_above_main_diag(matrix)}")
 # pprint(f"reset_below_main_diag - {reset_below_main_diag(matrix)}")
-pprint(f"get_matrix_sum - {get_matrix_sum(matrix_a, matrix_b)}")
+# pprint(f"get_matrix_sum - {get_matrix_sum(matrix_a, matrix_b)}")
+pprint(f"multyply_matrix_from_input - {multyply_matrix_from_input()}")
