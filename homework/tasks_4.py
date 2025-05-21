@@ -74,3 +74,15 @@ def get_fibonacci_sequence(req_count):
         fib_seq.append(fib_seq[-2] + fib_seq[-1])
         seq_len += 1
     return fib_seq
+
+
+def fizzbuzz():
+    for num in range(1, 101):
+        if num % 15 == 0:
+            print('FizzBuzz')
+        elif num % 3 == 0:
+            print('Fizz')
+        elif num % 5 == 0:
+            print('buzz')
+        else:
+            print(num)
