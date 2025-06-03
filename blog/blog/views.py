@@ -1,5 +1,5 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 def hello_world(request):
-    return HttpResponse('<h1>Hello world<\h1>')
+    return JsonResponse({"key":"hello","value":"world"})
