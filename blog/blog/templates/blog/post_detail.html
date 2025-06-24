@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+</head>
+<body>
+
+<div class="blog-title">
+    <a href="{% url 'post_list' %}">Teach me skills</a>
+</div>
+
+{#{{ items }}#}
+  <div class="post">
+            <div class="title">
+                {{ post.title }}
+            </div>
+            <div class="text">
+                {{ post.text }}
+            </div>
+            <div class="title">
+                {{ post.created_date }}
+            </div>
+            <div class="publish_date">
+                {{ post.publish_date }}
+            </div>
+        </div>
+<style>
+    .post{
+        width: max-content;
+        margin: 0 auto;
+    }
+    .blog-title {
+        display: block;
+        width: max-content;
+        margin: 0 auto;
+        font-size: 35px;
+    }
+</style>
+</body>
+</html>

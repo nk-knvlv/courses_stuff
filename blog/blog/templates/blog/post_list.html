@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+</head>
+<body>
+
+<div class="blog-title">
+    <p>Teach me skills</p>
+</div>
+
+{#{{ items }}#}
+<div class="posts">
+    {% for post in items %}
+        <div class="post">
+            <div class="title">
+                <a href="{% url 'post_detail' post_pk=post.pk %}">{{ post.title }}</a>
+            </div>
+            <div class="publish_date">
+                {{ post.publish_date }}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        background-color: purple;
+    }
+
+    .posts {
+        display: flex;
+    }
+
+    .post {
+        margin: 20px;
+        max-width: 200px;
+        border: 1px solid;
+        padding: 10px;
+    }
+
+    .blog-title {
+        width: max-content;
+        margin: 0 auto;
+        font-size: 35px;
+    }
+</style>
+</body>
+</html>

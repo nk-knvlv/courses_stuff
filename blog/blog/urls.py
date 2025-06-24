@@ -1,6 +1,7 @@
 from django.urls import path, include
-from .views import hello_world
+from .views import post_list, post_detail
 
 urlpatterns = [
-    path('hello_world/', hello_world),
+    path('', post_list, name='post_list'),
+    path('post/detail/<int:post_pk>', post_detail, name='post_detail'),
 ]
